@@ -7,6 +7,11 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
-    "gridsome": "^0.7.0"
+    "gridsome": "^0.7.0",
+    "gridsome-plugin-netlify-cms": "^1.0.9",
+    "netlify-cms": "^2.10.68"
+  },
+  "devDependencies": {
+    "gridsome-plugin-tailwindcss": "^4.1.0"
   }
 }
