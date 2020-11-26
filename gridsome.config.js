@@ -15,7 +15,7 @@ module.exports = {
       use: "gridsome-plugin-tailwindcss"
     },
     {
-      use: `gridsome-plugin-netlify-cms`,
+      use: "gridsome-plugin-netlify-cms",
       options: {
         publicPath: `/admin`
       }
