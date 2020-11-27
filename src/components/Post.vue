@@ -24,12 +24,12 @@
         </main>
     </Layout>
 </template>
-
+<script>
 export default {
         name: "Post",
     }
 
-
+</script>
 <page-query>
     query Post ($path: String) {
         post (path: $path) {

@@ -26,6 +26,7 @@
     </section>
 </template>
 
+<script>
 export default {
         props: ['base','info'],
         methods: {
@@ -42,5 +43,5 @@ export default {
             }
         }
     }
-
+</script>
     

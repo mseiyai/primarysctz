@@ -14,14 +14,14 @@
 
  import PostItem from '@/components/PostItem'
      import Pagination from '@/components/Pagination'
-
+<script>
     export default {
         components: {
             PostItem,
             Pagination
         },
     }
-
+</script>
 <page-query>
     query Home ($page: Int) {
         posts: allPost (page: $page, perPage: 6) @paginate {
