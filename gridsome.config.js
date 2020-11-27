@@ -15,6 +15,18 @@ module.exports = {
       use: "gridsome-plugin-tailwindcss"
     },
     {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'static/posts/*.md',
+        typeName: 'Post',
+        remark: {
+          plugins: [
+            // ...local plugins
+          ]
+        }
+      }
+    },
+    {
       use: "gridsome-plugin-netlify-cms",
       options: {
         publicPath: `/admin`

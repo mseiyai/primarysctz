@@ -1,33 +1,51 @@
 <template>
-  <Layout>
-
-    <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-    <g-image alt="Example image" src="~/favicon.png" width="135" />
-
-    <h1>Hello, world!</h1>
-
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores
-    </p>
-
-    <p class="home-links">
-      <a href="https://gridsome.org/docs/" target="_blank" rel="noopener">Gridsome Docs</a>
-      <a href="https://github.com/gridsome/gridsome" target="_blank" rel="noopener">GitHub</a>
-    </p>
-
-  </Layout>
+    <Layout >
+        <main>
+            <section>
+                <post-item v-for="edge in $page.posts.edges"
+                           :key="edge.node.id"
+                           :post="edge.node"/>
+            </section>
+            <pagination :info="$page.posts.pageInfo"
+                        v-if="$page.posts.pageInfo.totalPages > 1" />
+        </main>
+    </Layout>
 </template>
 
-<script>
-export default {
-  metaInfo: {
-    title: 'Hello, world!'
-  }
-}
-</script>
+ import PostItem from '@/components/PostItem'
+     import Pagination from '@/components/Pagination'
 
-<style>
-.home-links a {
-  margin-right: 1rem;
-}
-</style>
+    export default {
+        components: {
+            PostItem,
+            Pagination
+        },
+    }
+
+<page-query>
+    query Home ($page: Int) {
+        posts: allPost (page: $page, perPage: 6) @paginate {
+            totalCount
+            pageInfo {
+                totalPages
+                currentPage
+                }
+            edges {
+                node {
+                    id
+                    title
+                    timeToRead
+                    content
+                    excerpt
+                    description
+                    path
+                    tags {
+                            id
+                            title
+                            path
+                    }
+                }
+            }
+        }
+    }
+</page-query>
