@@ -39,11 +39,7 @@
                     excerpt
                     description
                     path
-                    tags {
-                            id
-                            title
-                            path
-                    }
+                    tags 
                 }
             }
         }
